@@ -1,0 +1,77 @@
+import java.util.Scanner;
+import java.util.Scanner;
+class BankAccount
+{ Scanner sc=new Scanner(System.in);
+    double balance;
+    BankAccount(double balance)
+    {
+        this.balance=balance;
+    }
+    void deposit()
+    {     double amount;
+        System.out.println("Enter the amount");
+        amount=sc.nextDouble();
+        if(amount>0) {
+            balance = balance + amount;
+            System.out.println("Deposit successful current balance ="+balance);
+        }
+        else
+        {
+            System.out.println("Something went wrong");
+        }
+
+    }
+    void checkbalance()
+    {
+        System.out.println("Current balance is-> "+balance);
+    }
+    void withdraw()
+    {    double amount;
+        System.out.println("Enter the amount");
+        amount= sc.nextDouble();
+        if(amount>0||amount<balance) {
+            balance = balance - amount;
+            System.out.println("Withdraw successful and your current balance is" + balance);
+        }
+        else
+        {
+            System.out.println("Something went wrong");
+        }
+
+
+    }
+
+
+}
+class ATM
+{ public static void main(String[]args)
+ { Scanner sc=new Scanner(System.in);
+     BankAccount ba=new BankAccount(1000);
+    while(true) {
+        System.out.println("Enter the Choice\n1.Check Balance\n2.Withdraw\n3.Deposit\n4.Exit");
+        int ch = sc.nextInt();
+        switch(ch)
+        {
+            case 1:
+                ba.checkbalance();
+                break;
+            case 2:
+                ba.withdraw();
+                break;
+            case 3:
+                ba.deposit();
+                break;
+            case 4:
+                System.exit(0);
+        }
+    }
+
+ }
+
+
+}
+
+
+
+
+
